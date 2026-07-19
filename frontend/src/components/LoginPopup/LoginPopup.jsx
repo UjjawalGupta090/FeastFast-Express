@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import "./LoginPopup.css";
 import { StoreContext } from "../../context/StoreContext";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const LoginPopup = ({ showLogin, setShowLogin }) => {
   const { url, setToken, setUserName, setRole } = useContext(StoreContext);
+  const navigate = useNavigate();
   const [currState, setCurrState] = useState("Sign Up");
   const [loginRole, setLoginRole] = useState("customer");
   const [data, setData] = useState({
@@ -118,7 +119,8 @@ const LoginPopup = ({ showLogin, setShowLogin }) => {
 
         // Redirect to admin dashboard automatically if logged in as Admin
         if (response.data.role === "admin") {
-          window.location.href = `/admin/?token=${response.data.token}&role=${response.data.role}&name=${encodeURIComponent(response.data.name || "Admin")}`;
+          setShowLogin(false);
+          navigate("/admin/dashboard");
         } else {
           setShowLogin(false);
         }
