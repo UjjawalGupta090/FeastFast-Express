@@ -54,7 +54,7 @@ const placeOrder = async (req, res) => {
 
     broadcastLiveUpdate("orderPlaced");
 
-    res.json({ success: true, session_url: `${frontend_url}/myorders` });
+    res.json({ success: true, session_url: `${frontend_url}/` });
   } catch (error) {
     console.error("Error in placeOrder:", error);
     res.status(500).json({ success: false, message: "Error placing order" });

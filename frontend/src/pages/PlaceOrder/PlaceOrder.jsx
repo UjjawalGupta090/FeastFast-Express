@@ -5,7 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const PlaceOrder = () => {
-  const { getCartAmount, token, food_list, cartItems, url, storeSettings, fulfillmentType } = useContext(StoreContext);
+  const { getCartAmount, token, food_list, cartItems, setCartItems, url, storeSettings, fulfillmentType } = useContext(StoreContext);
   const navigate = useNavigate();
 
   const [data, setData] = useState({
@@ -258,8 +258,8 @@ const PlaceOrder = () => {
         headers: { token }
       });
       if (response.data.success) {
-        const { session_url } = response.data;
-        window.location.replace(session_url);
+        setCartItems({});
+        navigate("/");
       } else {
         setErrorMessage(response.data.message || "Failed to process order checkout.");
       }
