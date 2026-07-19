@@ -169,16 +169,8 @@ const LoginPopup = ({ showLogin, setShowLogin }) => {
     
     const initGoogleSignIn = () => {
       if (window.google) {
-        const rawId = import.meta.env.VITE_GOOGLE_CLIENT_ID || "674236098793-83is78llkauo1n1misi72f29p4mt15fs.apps.googleusercontent.com";
-        const cleanClientId = String(rawId)
-          .trim()
-          .replace(/^['"]|['"]$/g, '')
-          .replace(/[\u2010-\u2015\u2212]/g, '-');
-
-        console.log("Google GIS initialized with Client ID:", cleanClientId);
-
         window.google.accounts.id.initialize({
-          client_id: cleanClientId,
+          client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID || "674236098793-83is78llkauo1n1misi72f29p4mt15fs.apps.googleusercontent.com",
           callback: handleGoogleCredentialResponse
         });
 
