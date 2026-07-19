@@ -45,7 +45,7 @@ const Footer = () => {
           <ul>
             <li className="contact-info-item">
               <span className="material-symbols-outlined contact-icon">location_on</span>
-              <span>House No. 390, Kurganja 1st, Powayan, Shahjahanpur, Uttar Pradesh, India</span>
+              <span>Connaught Place, New Delhi - 110001, India</span>
             </li>
             <li className="contact-info-item">
               <span className="material-symbols-outlined contact-icon">call</span>
