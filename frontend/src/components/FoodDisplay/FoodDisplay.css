@@ -1,0 +1,58 @@
+.food-display {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 50px;
+}
+
+.food-display-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.food-display h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--md-sys-color-on-background);
+}
+
+.results-count {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface-variant);
+  background-color: var(--md-sys-color-surface-container);
+  padding: 4px 12px;
+  border-radius: var(--md-shape-corner-full);
+}
+
+.food-display-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 30px;
+  row-gap: 35px;
+  margin-top: 15px;
+}
+
+.empty-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: var(--md-shape-corner-large);
+  text-align: center;
+  gap: 12px;
+}
+
+.empty-icon {
+  font-size: 3rem !important;
+  color: var(--md-sys-color-outline-variant);
+}
+
+.empty-display p {
+  color: var(--md-sys-color-on-surface-variant);
+  font-weight: 500;
+}

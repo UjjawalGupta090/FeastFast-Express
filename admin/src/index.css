@@ -1,0 +1,295 @@
+/* ----------------------------------------------------
+   Material 3 (M3) Admin Design System & Global Styles
+   ---------------------------------------------------- */
+
+:root {
+  /* M3 Color Tokens (Tomato/Warm Red Theme) */
+  --md-sys-color-primary: #e33e38;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #ffdad5;
+  --md-sys-color-on-primary-container: #410002;
+  
+  --md-sys-color-secondary: #775652;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #ffdad5;
+  --md-sys-color-on-secondary-container: #2c1512;
+
+  --md-sys-color-tertiary: #2e6a4f;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-tertiary-container: #b2f1cc;
+  --md-sys-color-on-tertiary-container: #002112;
+
+  --md-sys-color-error: #ba1a1a;
+  --md-sys-color-on-error: #ffffff;
+  
+  --md-sys-color-background: #fffbff;
+  --md-sys-color-on-background: #201a19;
+  
+  --md-sys-color-surface: #fdf8f7;
+  --md-sys-color-on-surface: #201a19;
+  --md-sys-color-surface-variant: #f5ddd9;
+  --md-sys-color-on-surface-variant: #534341;
+  --md-sys-color-surface-container: #f7f2f1;
+  
+  --md-sys-color-outline: #857370;
+  --md-sys-color-outline-variant: #d8c2be;
+
+  /* M3 Shape/Corner Tokens */
+  --md-shape-corner-none: 0px;
+  --md-shape-corner-extra-small: 4px;
+  --md-shape-corner-small: 8px;
+  --md-shape-corner-medium: 12px;
+  --md-shape-corner-large: 16px;
+  --md-shape-corner-extra-large: 28px;
+  --md-shape-corner-full: 9999px;
+
+  /* M3 Elevations (Shadows) */
+  --md-elevation-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
+  --md-elevation-2: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
+  --md-elevation-3: 0px 1px 3px 0px rgba(0, 0, 0, 0.3), 0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+
+  --md-transition-standard: cubic-bezier(0.2, 0, 0, 1);
+  --md-duration-medium: 0.3s;
+}
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+}
+
+body {
+  background-color: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: var(--md-sys-color-outline-variant);
+}
+
+/* Dashboard Split Grid Layout */
+.app-content {
+  display: flex;
+  min-height: calc(100vh - 65px); /* Full height minus nav bar */
+}
+
+.dashboard-page-container {
+  flex: 1;
+  padding: 30px 40px;
+  background-color: var(--md-sys-color-background);
+}
+
+/* M3 Buttons */
+.m3-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 24px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: var(--md-shape-corner-full);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--md-duration-medium) var(--md-transition-standard);
+  user-select: none;
+}
+
+.m3-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  opacity: 0;
+  transition: opacity 0.15s linear;
+}
+.m3-btn:hover::after {
+  opacity: 0.08;
+}
+
+.m3-btn-filled {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1);
+}
+.m3-btn-filled:hover {
+  box-shadow: var(--md-elevation-1);
+}
+
+.m3-btn-tonal {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.m3-btn-outlined {
+  background-color: transparent;
+  color: var(--md-sys-color-primary);
+  border: 1px solid var(--md-sys-color-outline);
+}
+
+/* M3 Elevated Cards */
+.m3-card {
+  border-radius: var(--md-shape-corner-large);
+  overflow: hidden;
+  transition: all var(--md-duration-medium) var(--md-transition-standard);
+}
+
+.m3-card-elevated {
+  background-color: var(--md-sys-color-surface-container);
+  box-shadow: var(--md-elevation-1);
+}
+
+.m3-card-outlined {
+  background-color: var(--md-sys-color-surface);
+  border: 1px solid var(--md-sys-color-outline-variant);
+}
+
+/* M3 Form Fields */
+.m3-text-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.m3-text-field input, .m3-text-field textarea {
+  width: 100%;
+  padding: 16px;
+  font-size: 0.95rem;
+  background-color: transparent;
+  border: 1.5px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-shape-corner-medium);
+  outline: none;
+  color: var(--md-sys-color-on-surface);
+  transition: all 0.2s var(--md-transition-standard);
+}
+
+.m3-text-field textarea {
+  height: 120px;
+  resize: none;
+}
+
+.m3-text-field label {
+  position: absolute;
+  left: 16px;
+  top: 18px;
+  transform: translateY(0);
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.95rem;
+  transition: all 0.2s var(--md-transition-standard);
+  pointer-events: none;
+  background-color: var(--md-sys-color-surface);
+  padding: 0 6px;
+}
+
+.m3-text-field input:focus ~ label,
+.m3-text-field input:not(:placeholder-shown) ~ label,
+.m3-text-field textarea:focus ~ label,
+.m3-text-field textarea:not(:placeholder-shown) ~ label {
+  top: -8px;
+  left: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--md-sys-color-primary);
+}
+
+.m3-text-field input:focus, .m3-text-field textarea:focus {
+  border-color: var(--md-sys-color-primary);
+  box-shadow: 0 0 0 1px var(--md-sys-color-primary);
+  background-color: transparent;
+}
+
+/* Dropdown select M3 variant */
+.m3-select-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.m3-select-wrapper select {
+  height: 52px;
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  background-color: transparent;
+  border: 1.5px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-shape-corner-medium);
+  outline: none;
+  color: var(--md-sys-color-on-surface);
+  cursor: pointer;
+  appearance: none; /* Hide default native arrows */
+  transition: all 0.2s var(--md-transition-standard);
+}
+
+.m3-select-wrapper select:focus {
+  border-color: var(--md-sys-color-primary);
+  box-shadow: 0 0 0 1px var(--md-sys-color-primary);
+}
+
+.m3-select-wrapper label {
+  position: absolute;
+  left: 12px;
+  top: -8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--md-sys-color-primary);
+  pointer-events: none;
+  background-color: var(--md-sys-color-surface);
+  padding: 0 6px;
+}
+
+.m3-select-arrow {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Icons */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  vertical-align: middle;
+}
+
+/* Status Banner Fade-Out Animation */
+.status-banner {
+  animation: fadeOutNotification 2.5s forwards ease-in-out;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+@keyframes fadeOutNotification {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}

@@ -1,0 +1,43 @@
+.verify-page {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.verify-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 450px;
+}
+
+.m3-spinner {
+  width: 64px;
+  height: 64px;
+  border: 6px solid var(--md-sys-color-primary-container);
+  border-top-color: var(--md-sys-color-primary);
+  border-radius: var(--md-shape-corner-full);
+  animation: spinner-rotate 1s infinite linear;
+}
+
+.verify-container h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--md-sys-color-on-background);
+}
+
+.verify-container p {
+  font-size: 0.9rem;
+  color: var(--md-sys-color-on-surface-variant);
+  line-height: 1.6;
+}
+
+@keyframes spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}

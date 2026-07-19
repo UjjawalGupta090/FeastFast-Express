@@ -1,0 +1,475 @@
+.my-orders-page {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 80px;
+}
+
+.my-orders-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.my-orders-page h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--md-sys-color-on-background);
+}
+
+.refresh-btn {
+  padding: 8px 16px !important;
+}
+
+/* Error/Empty States */
+.my-orders-error, .my-orders-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.error-icon, .empty-icon {
+  font-size: 4rem !important;
+  color: var(--md-sys-color-outline-variant);
+}
+
+.my-orders-error h3, .my-orders-empty h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface);
+}
+
+.my-orders-empty p {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.9rem;
+  max-width: 400px;
+}
+
+.my-orders-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+  gap: 16px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Orders List */
+.my-orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.order-card {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 1fr 1fr;
+  align-items: center;
+  padding: 20px 24px;
+  gap: 24px;
+  background-color: var(--md-sys-color-surface);
+  transition: all 0.2s var(--md-transition-standard);
+}
+
+.order-card:hover {
+  background-color: var(--md-sys-color-surface-container);
+  border-color: var(--md-sys-color-primary-container);
+}
+
+.order-box-icon {
+  font-size: 3rem !important;
+  color: var(--md-sys-color-primary);
+  background-color: var(--md-sys-color-primary-container);
+  width: 56px;
+  height: 56px;
+  border-radius: var(--md-shape-corner-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.order-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.order-items-text {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--md-sys-color-on-surface);
+}
+
+.order-meta {
+  display: flex;
+  gap: 20px;
+  font-size: 0.85rem;
+  color: var(--md-sys-color-on-surface-variant);
+  flex-wrap: wrap;
+}
+
+.order-amount strong {
+  color: var(--md-sys-color-on-surface);
+}
+
+/* Order Status */
+.order-status-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-dot.food-processing {
+  background-color: var(--md-sys-color-primary);
+  box-shadow: 0 0 8px var(--md-sys-color-primary);
+}
+
+.status-dot.out-for-delivery {
+  background-color: #0284c7;
+  box-shadow: 0 0 8px #0284c7;
+}
+
+.status-dot.delivered {
+  background-color: var(--md-sys-color-tertiary);
+  box-shadow: 0 0 8px var(--md-sys-color-tertiary);
+}
+
+.status-dot.cancelled {
+  background-color: var(--md-sys-color-error);
+  box-shadow: 0 0 8px var(--md-sys-color-error);
+}
+
+.status-text {
+  color: var(--md-sys-color-on-surface);
+}
+
+.track-btn {
+  justify-self: end;
+  padding: 10px 20px !important;
+  font-weight: 600 !important;
+}
+
+@media (max-width: 900px) {
+  .order-card {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .order-box-icon {
+    display: none;
+  }
+  .track-btn {
+    justify-self: start;
+    width: 100%;
+  }
+  .order-status-wrapper {
+    margin-top: 4px;
+  }
+}
+
+/* Status dot styles for new states */
+/* Status dot styles for new states */
+.status-dot.placed {
+  background-color: #d97706;
+  box-shadow: 0 0 8px #d97706;
+}
+
+.status-dot.rejected {
+  background-color: #ba1a1a;
+  box-shadow: 0 0 8px #ba1a1a;
+}
+
+/* Live Tracking Modal Overlay & Card */
+.tracking-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tracking-modal-card {
+  width: 90%;
+  max-width: 500px;
+  background-color: var(--md-sys-color-surface);
+  border-radius: var(--md-shape-corner-large);
+  padding: 24px;
+  box-shadow: var(--md-elevation-3);
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slide-up 0.25s var(--md-transition-standard);
+  border: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.tracking-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.tracking-modal-header h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface);
+  margin: 0;
+}
+
+.close-modal-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--md-sys-color-on-surface-variant);
+  width: 36px;
+  height: 36px;
+  border-radius: var(--md-shape-corner-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.close-modal-btn:hover {
+  background-color: var(--md-sys-color-surface-container-high);
+}
+
+.tracking-order-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  background-color: var(--md-sys-color-surface-container-low);
+  border-radius: 8px;
+}
+
+.tracking-order-meta span {
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface);
+}
+
+.tracking-items-summary {
+  background-color: var(--md-sys-color-surface-container-lowest);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.tracking-items-summary h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: 10px;
+}
+
+.tracking-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tracking-item-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--md-sys-color-on-surface);
+}
+
+.item-qty-name {
+  font-weight: 600;
+}
+
+.tracking-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  color: var(--md-sys-color-on-surface);
+}
+
+/* Vertical preparation timeline */
+.tracking-timeline-vertical {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 36px; /* Space for nodes */
+  margin-top: 16px;
+  gap: 28px;
+}
+
+.timeline-step {
+  display: flex;
+  position: relative;
+  min-height: 56px;
+  align-items: flex-start;
+}
+
+/* Perfect line connector between nodes */
+.timeline-step::before {
+  content: '';
+  position: absolute;
+  left: -25px; /* Center of the node */
+  top: 26px; /* Start below the node center */
+  bottom: -34px; /* Extend to the next node */
+  width: 2px;
+  background-color: var(--md-sys-color-outline-variant);
+  z-index: 1;
+}
+
+/* Hide line below the last node */
+.timeline-step:last-child::before {
+  display: none !important;
+}
+
+/* Active step has a colored line below it */
+.timeline-step.completed::before {
+  background-color: var(--md-sys-color-tertiary);
+}
+
+.timeline-node {
+  position: absolute;
+  left: -37px; /* Positioned on the line */
+  top: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: all 0.3s var(--md-transition-standard);
+  box-sizing: border-box;
+}
+
+.timeline-node .material-symbols-outlined {
+  font-size: 1.15rem;
+  font-variation-settings: 'FILL' 1;
+  display: block;
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.timeline-content h5 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.timeline-content p {
+  font-size: 0.8rem;
+  color: var(--md-sys-color-on-surface-variant);
+  margin: 0;
+}
+
+/* Status variants */
+/* 1. Completed steps (Solid green background, white checkmark) */
+.timeline-step.completed .timeline-node {
+  background-color: var(--md-sys-color-tertiary);
+  color: var(--md-sys-color-on-tertiary) !important;
+  border: none;
+  box-shadow: 0 0 6px rgba(46, 106, 79, 0.3);
+}
+
+.timeline-step.completed .timeline-node .material-symbols-outlined {
+  color: var(--md-sys-color-on-tertiary) !important;
+}
+
+.timeline-step.completed .timeline-content h5 {
+  color: var(--md-sys-color-on-surface);
+}
+
+/* 2. Active step (Solid tomato red pulsing background, white icon) */
+.timeline-step.active .timeline-node {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary) !important;
+  border: none;
+  box-shadow: 0 0 8px var(--md-sys-color-primary);
+  animation: pulse-node-glow 2s infinite ease-in-out;
+}
+
+.timeline-step.active .timeline-node .material-symbols-outlined {
+  color: var(--md-sys-color-on-primary) !important;
+}
+
+.timeline-step.active .timeline-content h5 {
+  color: var(--md-sys-color-primary);
+}
+
+/* 3. Pending steps (Light grey background, grey icon) */
+.timeline-step.pending .timeline-node {
+  background-color: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-outline) !important;
+  border: 1.5px solid var(--md-sys-color-outline-variant);
+}
+
+.timeline-step.pending .timeline-node .material-symbols-outlined {
+  color: var(--md-sys-color-outline) !important;
+}
+
+.timeline-step.pending .timeline-content h5 {
+  color: var(--md-sys-color-outline-variant);
+}
+
+.timeline-step.pending .timeline-content p {
+  color: var(--md-sys-color-outline-variant);
+}
+
+/* Status Badge capsule */
+.status-badge-timeline {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.status-badge-timeline.active-badge {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-primary);
+}
+
+.status-badge-timeline.completed-badge {
+  background-color: var(--md-sys-color-tertiary-container);
+  color: var(--md-sys-color-tertiary);
+}
+
+@keyframes pulse-node-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(227, 62, 56, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(227, 62, 56, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(227, 62, 56, 0);
+  }
+}

@@ -1,0 +1,207 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  background-color: var(--md-sys-color-background);
+  z-index: 10;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  transition: all 0.3s var(--md-transition-standard);
+}
+
+.logo {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--md-sys-color-primary);
+  letter-spacing: -0.5px;
+}
+
+.logo-dot {
+  color: var(--md-sys-color-on-background);
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  gap: 28px;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.navbar-menu a {
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: var(--md-shape-corner-full);
+  transition: all 0.2s var(--md-transition-standard);
+}
+
+.navbar-menu a:hover {
+  background-color: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface);
+}
+
+.navbar-menu a.active {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-icon {
+  font-size: 1.5rem;
+  color: var(--md-sys-color-on-surface-variant);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--md-shape-corner-full);
+  transition: background-color 0.2s;
+}
+
+.nav-icon:hover {
+  background-color: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface);
+}
+
+.navbar-basket {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.basket-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  font-size: 0.7rem;
+  font-weight: 600;
+  min-width: 18px;
+  height: 18px;
+  border-radius: var(--md-shape-corner-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--md-sys-color-background);
+  padding: 0 4px;
+}
+
+.sign-in-btn {
+  padding: 10px 20px !important;
+}
+
+/* Profile Dropdown styling */
+.navbar-profile-container {
+  position: relative;
+}
+
+.navbar-profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-shape-corner-full);
+  padding: 4px 12px 4px 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+  transition: background-color 0.2s;
+}
+
+.navbar-profile-btn:hover {
+  background: var(--md-sys-color-surface-variant);
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--md-shape-corner-full);
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.profile-name {
+  max-width: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown-chevron {
+  font-size: 1.1rem;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--md-sys-color-surface);
+  border-radius: var(--md-shape-corner-medium);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  padding: 8px 0;
+  min-width: 150px;
+  box-shadow: var(--md-sys-color-outline-variant) 0px 4px 12px;
+  animation: m3-fade-in 0.2s var(--md-transition-standard);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  font-size: 0.875rem;
+  color: var(--md-sys-color-on-surface);
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+}
+
+.dropdown-item:hover {
+  background-color: var(--md-sys-color-surface-variant);
+}
+
+.dropdown-item .material-symbols-outlined {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 1.25rem;
+}
+
+.dropdown-divider {
+  border: 0;
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+  margin: 4px 0;
+}
+
+.logout-btn {
+  color: var(--md-sys-color-error);
+}
+
+.logout-btn .material-symbols-outlined {
+  color: var(--md-sys-color-error);
+}
+
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+  }
+}

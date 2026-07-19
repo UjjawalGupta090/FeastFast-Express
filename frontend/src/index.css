@@ -1,0 +1,339 @@
+/* ----------------------------------------------------
+   Material 3 (M3) Design System & Global Styles
+   ---------------------------------------------------- */
+
+:root {
+  /* M3 Color Tokens (Tomato/Warm Red Theme) */
+  --md-sys-color-primary: #e33e38;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #ffdad5;
+  --md-sys-color-on-primary-container: #410002;
+  
+  --md-sys-color-secondary: #775652;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #ffdad5;
+  --md-sys-color-on-secondary-container: #2c1512;
+  
+  --md-sys-color-tertiary: #2e6a4f;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-tertiary-container: #b2f1cc;
+  --md-sys-color-on-tertiary-container: #002112;
+
+  --md-sys-color-error: #ba1a1a;
+  --md-sys-color-on-error: #ffffff;
+  
+  --md-sys-color-background: #fffbff;
+  --md-sys-color-on-background: #201a19;
+  
+  --md-sys-color-surface: #fdf8f7;
+  --md-sys-color-on-surface: #201a19;
+  --md-sys-color-surface-variant: #f5ddd9;
+  --md-sys-color-on-surface-variant: #534341;
+  --md-sys-color-surface-container: #f7f2f1;
+  
+  --md-sys-color-outline: #857370;
+  --md-sys-color-outline-variant: #d8c2be;
+
+  /* M3 Shape/Corner Tokens */
+  --md-shape-corner-none: 0px;
+  --md-shape-corner-extra-small: 4px;
+  --md-shape-corner-small: 8px;
+  --md-shape-corner-medium: 12px;
+  --md-shape-corner-large: 16px;
+  --md-shape-corner-extra-large: 28px;
+  --md-shape-corner-full: 9999px;
+
+  /* M3 Elevations (Shadows) */
+  --md-elevation-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
+  --md-elevation-2: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
+  --md-elevation-3: 0px 1px 3px 0px rgba(0, 0, 0, 0.3), 0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+  --md-elevation-4: 0px 2px 3px 0px rgba(0, 0, 0, 0.3), 0px 6px 10px 4px rgba(0, 0, 0, 0.15);
+
+  /* Animation Curves */
+  --md-transition-standard: cubic-bezier(0.2, 0, 0, 1);
+  --md-duration-medium: 0.3s;
+}
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+}
+
+body {
+  background-color: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Scrollbars styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--md-sys-color-background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--md-sys-color-outline-variant);
+  border-radius: var(--md-shape-corner-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--md-sys-color-outline);
+}
+
+/* Layout Wrappers */
+.app-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* ----------------------------------------------------
+   Material 3 Component Classes
+   ---------------------------------------------------- */
+
+/* M3 Buttons */
+.m3-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 24px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: var(--md-shape-corner-full);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--md-duration-medium) var(--md-transition-standard);
+  user-select: none;
+}
+
+/* State overlay (hover/focus/active indicators) */
+.m3-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: currentColor;
+  opacity: 0;
+  transition: opacity 0.15s linear;
+}
+.m3-btn:hover::after {
+  opacity: 0.08;
+}
+.m3-btn:focus::after {
+  opacity: 0.12;
+}
+.m3-btn:active::after {
+  opacity: 0.16;
+}
+
+.m3-btn-filled {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1);
+}
+.m3-btn-filled:hover {
+  box-shadow: var(--md-elevation-1);
+}
+
+.m3-btn-tonal {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.m3-btn-outlined {
+  background-color: transparent;
+  color: var(--md-sys-color-primary);
+  border: 1px solid var(--md-sys-color-outline);
+}
+.m3-btn-outlined:focus {
+  border-color: var(--md-sys-color-primary);
+}
+
+.m3-btn-text {
+  background-color: transparent;
+  color: var(--md-sys-color-primary);
+  padding: 10px 16px;
+}
+
+/* M3 Floating Action Button (FAB) */
+.m3-fab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border-radius: var(--md-shape-corner-large);
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--md-elevation-3);
+  transition: all var(--md-duration-medium) var(--md-transition-standard);
+  position: relative;
+  overflow: hidden;
+}
+.m3-fab::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.m3-fab:hover::after {
+  opacity: 0.08;
+}
+.m3-fab:hover {
+  box-shadow: var(--md-elevation-4);
+  transform: translateY(-2px);
+}
+
+/* M3 Cards */
+.m3-card {
+  border-radius: var(--md-shape-corner-large);
+  overflow: hidden;
+  transition: all var(--md-duration-medium) var(--md-transition-standard);
+}
+
+.m3-card-elevated {
+  background-color: var(--md-sys-color-surface-container);
+  box-shadow: var(--md-elevation-1);
+}
+.m3-card-elevated:hover {
+  box-shadow: var(--md-elevation-2);
+  transform: translateY(-2px);
+}
+
+.m3-card-outlined {
+  background-color: var(--md-sys-color-surface);
+  border: 1px solid var(--md-sys-color-outline-variant);
+}
+.m3-card-outlined:hover {
+  box-shadow: var(--md-elevation-1);
+}
+
+/* M3 Text Input Fields (Floating Labels) */
+.m3-text-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.m3-text-field input {
+  width: 100%;
+  height: 56px;
+  padding: 20px 16px 6px 16px;
+  font-size: 1rem;
+  background-color: var(--md-sys-color-surface-container);
+  border: none;
+  border-bottom: 1px solid var(--md-sys-color-outline);
+  border-top-left-radius: var(--md-shape-corner-extra-small);
+  border-top-right-radius: var(--md-shape-corner-extra-small);
+  outline: none;
+  color: var(--md-sys-color-on-surface);
+  transition: all 0.2s var(--md-transition-standard);
+}
+
+.m3-text-field label {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 1rem;
+  transition: all 0.2s var(--md-transition-standard);
+  pointer-events: none;
+}
+
+.m3-text-field input:focus ~ label,
+.m3-text-field input:not(:placeholder-shown) ~ label {
+  top: 14px;
+  font-size: 0.75rem;
+  color: var(--md-sys-color-primary);
+}
+
+.m3-text-field input:focus {
+  border-bottom: 2px solid var(--md-sys-color-primary);
+  background-color: var(--md-sys-color-surface-variant);
+}
+
+/* Modern Dialog Styling */
+dialog {
+  border: none;
+  border-radius: var(--md-shape-corner-extra-large);
+  background-color: var(--md-sys-color-surface);
+  box-shadow: var(--md-elevation-4);
+  padding: 24px;
+  max-width: 500px;
+  width: 90%;
+  margin: auto;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+}
+
+dialog[open] {
+  display: flex;
+  animation: m3-dialog-open var(--md-duration-medium) var(--md-transition-standard);
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  animation: m3-fade-in var(--md-duration-medium) var(--md-transition-standard);
+}
+
+@keyframes m3-dialog-open {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes m3-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Header/Footer Icons */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  vertical-align: middle;
+}
+
+.m3-btn .material-symbols-outlined {
+  font-size: 1.25rem;
+}

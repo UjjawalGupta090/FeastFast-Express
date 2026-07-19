@@ -1,0 +1,314 @@
+.stats-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background-color: var(--md-sys-color-surface);
+  border-radius: var(--md-shape-corner-medium);
+}
+
+.stat-card-icon {
+  font-size: 2.25rem;
+  color: var(--md-sys-color-primary);
+  background-color: var(--md-sys-color-primary-container);
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.stat-card-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--md-sys-color-on-surface-variant);
+  font-weight: 600;
+}
+
+.stat-val {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--md-sys-color-on-surface);
+  margin-top: 4px;
+}
+
+/* Middle Layout */
+.dashboard-sections-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+@media (max-width: 850px) {
+  .dashboard-sections-grid,
+  .dashboard-charts-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.dashboard-settings-card,
+.target-progress-card,
+.chart-card,
+.top-products-card {
+  padding: 24px;
+  background-color: var(--md-sys-color-surface);
+  border-radius: var(--md-shape-corner-large);
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-controls-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.settings-controls-form .submit-btn {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Progress bar */
+.progress-bar-container {
+  width: 100%;
+  height: 12px;
+  background-color: var(--md-sys-color-surface-container-high);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--md-sys-color-primary);
+  border-radius: 6px;
+  transition: width 0.4s ease;
+}
+
+/* Charts Grid */
+.dashboard-charts-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.bar-chart-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 200px;
+  margin-top: 24px;
+  padding: 0 10px 10px 10px;
+  border-bottom: 2px solid var(--md-sys-color-outline-variant);
+}
+
+.chart-bar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50px;
+  gap: 8px;
+}
+
+.bar-value {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--md-sys-color-primary);
+}
+
+.chart-bar {
+  width: 24px;
+  background-color: var(--md-sys-color-primary);
+  border-radius: 6px 6px 0 0;
+  transition: height 0.3s ease;
+}
+
+.chart-bar-wrapper:hover .chart-bar {
+  background-color: var(--md-sys-color-secondary);
+}
+
+.bar-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface-variant);
+  white-space: nowrap;
+}
+
+/* Highly Ordered Items Table */
+.top-items-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-items-table .table-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.top-items-table .table-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.top-items-table .table-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: var(--md-shape-corner-medium);
+  font-size: 0.85rem;
+  color: var(--md-sys-color-on-surface);
+}
+
+.top-items-table .table-row:hover {
+  background-color: var(--md-sys-color-surface-container-low);
+}
+
+.dish-rank {
+  font-weight: 700;
+  color: var(--md-sys-color-primary);
+}
+
+.dish-name {
+  font-weight: 600;
+}
+
+.dish-qty {
+  font-size: 0.8rem;
+  color: var(--md-sys-color-on-surface-variant);
+  font-weight: 700;
+  background-color: var(--md-sys-color-surface-container-high);
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+/* Calendar Styles */
+.calendar-section {
+  padding: 24px;
+  background-color: var(--md-sys-color-surface);
+  border-radius: var(--md-shape-corner-large);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.calendar-title-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.calendar-nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.current-month-year {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface);
+  min-width: 140px;
+  text-align: center;
+}
+
+.calendar-grid-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--md-sys-color-outline);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.calendar-days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.calendar-day {
+  min-height: 70px;
+  padding: 8px;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-shape-corner-medium);
+  background-color: var(--md-sys-color-surface-container-low);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  transition: all 0.2s var(--md-transition-standard);
+}
+
+.calendar-day.empty {
+  border-color: transparent;
+  background-color: transparent;
+  pointer-events: none;
+}
+
+.calendar-day.has-sales {
+  background-color: var(--md-sys-color-tertiary-container);
+  border-color: var(--md-sys-color-tertiary);
+}
+
+.calendar-day.has-sales:hover {
+  background-color: var(--md-sys-color-tertiary-container);
+  transform: translateY(-2px);
+  box-shadow: var(--md-elevation-1);
+}
+
+.calendar-day .day-number {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface);
+}
+
+.calendar-day.has-sales .day-number {
+  color: var(--md-sys-color-on-tertiary-container);
+}
+
+.day-sales {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--md-sys-color-tertiary);
+  background-color: var(--md-sys-color-surface);
+  padding: 2px 6px;
+  border-radius: 8px;
+  border: 1px solid var(--md-sys-color-tertiary);
+  width: 100%;
+  text-align: center;
+}

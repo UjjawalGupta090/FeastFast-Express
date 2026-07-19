@@ -1,0 +1,219 @@
+.admins-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 24px;
+  align-items: start;
+  margin-top: 24px;
+}
+
+@media (max-width: 900px) {
+  .admins-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.create-admin-section,
+.admins-list-section {
+  padding: 24px;
+  background-color: var(--md-sys-color-surface);
+  border-radius: var(--md-shape-corner-large);
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface);
+  margin-bottom: 8px;
+}
+
+.section-description {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: 20px;
+}
+
+.add-admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.add-admin-form .submit-btn {
+  align-self: flex-start;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admins-table-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+}
+
+.admins-table-header {
+  display: grid;
+  grid-template-columns: 1.2fr 1.5fr 0.8fr 1fr;
+  padding: 12px 16px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.admins-table-rows {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.admins-table-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1.5fr 0.8fr 1fr;
+  align-items: center;
+  padding: 16px;
+  font-size: 0.85rem;
+  color: var(--md-sys-color-on-surface);
+  transition: background-color var(--md-transition-short) var(--md-transition-standard);
+  border-radius: var(--md-shape-corner-medium);
+}
+
+.admins-table-row:hover {
+  background-color: var(--md-sys-color-surface-container-low);
+}
+
+.admin-name-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-avatar-icon {
+  color: var(--md-sys-color-primary);
+  font-size: 1.25rem;
+}
+
+.admin-name {
+  font-weight: 600;
+}
+
+.admin-email {
+  color: var(--md-sys-color-on-surface-variant);
+  word-break: break-all;
+}
+
+.admin-role-badge {
+  justify-self: start;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 12px;
+  color: var(--md-sys-color-primary);
+  background-color: var(--md-sys-color-primary-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.admin-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-right: 12px;
+}
+
+.action-btn {
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: var(--md-shape-corner-full);
+  transition: background-color 0.2s, color 0.2s;
+  user-select: none;
+}
+
+.action-btn.delete-btn {
+  color: var(--md-sys-color-error);
+}
+
+.action-btn.delete-btn:hover {
+  background-color: var(--md-sys-color-primary-container);
+}
+
+.action-btn.edit-btn {
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.action-btn.edit-btn:hover {
+  background-color: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface);
+}
+
+/* M3 Dialog / Overlay styles */
+.m3-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.m3-dialog {
+  width: 90%;
+  max-width: 440px;
+  background-color: var(--md-sys-color-surface);
+  border-radius: var(--md-shape-corner-large);
+  padding: 24px;
+  box-shadow: var(--md-elevation-3);
+  animation: scale-up 0.2s var(--md-transition-standard);
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes scale-up {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.dialog-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface);
+  margin-bottom: 8px;
+}
+
+.dialog-description {
+  font-size: 0.85rem;
+  color: var(--md-sys-color-on-surface-variant);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.row-divider {
+  border: 0;
+  border-top: 1px solid var(--md-sys-color-surface-variant);
+  margin: 0;
+  opacity: 0.5;
+}
+
+.loading-container {
+  padding: 40px;
+  text-align: center;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.9rem;
+}

@@ -1,0 +1,72 @@
+.admin-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  background-color: var(--md-sys-color-background);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  height: 65px;
+}
+
+.navbar-logo-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--md-sys-color-primary);
+  letter-spacing: -0.5px;
+}
+
+.panel-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  padding: 2px 10px;
+  border-radius: var(--md-shape-corner-full);
+}
+
+.navbar-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--md-shape-corner-full);
+  background-color: var(--md-sys-color-secondary);
+  color: var(--md-sys-color-on-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.profile-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface);
+}
+
+.profile-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--md-sys-color-primary);
+  background-color: var(--md-sys-color-primary-container);
+  padding: 1px 6px;
+  border-radius: var(--md-shape-corner-small);
+  width: max-content;
+  margin-top: 1px;
+}

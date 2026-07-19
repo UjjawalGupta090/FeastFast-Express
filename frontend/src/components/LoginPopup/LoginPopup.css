@@ -1,0 +1,187 @@
+.login-popup {
+  --auth-accent: var(--md-sys-color-primary);
+  padding: 32px;
+  max-width: 450px;
+  display: none;
+  flex-direction: column;
+  gap: 24px;
+  transition: border-top 0.3s var(--md-transition-standard);
+}
+
+.login-popup[open] {
+  display: flex;
+}
+
+.login-popup.admin-mode {
+  --auth-accent: #1e293b; /* Sleek Slate/Charcoal Admin Accent */
+  border-top: 6px solid var(--auth-accent);
+  box-shadow: var(--md-elevation-4);
+}
+
+.login-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.login-popup-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface);
+}
+
+.admin-subtitle {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--md-sys-color-outline);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.close-dialog-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--md-shape-corner-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--md-sys-color-on-surface-variant);
+  transition: background-color 0.2s;
+}
+
+.close-dialog-btn:hover {
+  background-color: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface);
+}
+
+.login-popup-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-popup-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Custom Text Field Focus overrides for role accents */
+.login-popup .m3-text-field input:focus ~ label {
+  color: var(--auth-accent) !important;
+}
+
+.login-popup .m3-text-field input:focus {
+  border-bottom: 2px solid var(--auth-accent) !important;
+}
+
+.error-banner {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border: 1px solid var(--md-sys-color-primary);
+  border-radius: var(--md-shape-corner-medium);
+  padding: 12px 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.login-popup.admin-mode .error-banner {
+  background-color: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface);
+  border-color: var(--auth-accent);
+}
+
+.submit-auth-btn {
+  height: 48px;
+  width: 100%;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+}
+
+.login-popup.admin-mode .submit-auth-btn {
+  background-color: var(--auth-accent) !important;
+}
+
+.login-popup-condition {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: -4px;
+}
+
+.login-popup-condition input[type="checkbox"] {
+  margin-top: 4px;
+  accent-color: var(--auth-accent);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.login-popup-condition label {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  cursor: pointer;
+  user-select: none;
+}
+
+.auth-toggle-text {
+  font-size: 0.85rem;
+  color: var(--md-sys-color-on-surface-variant);
+  text-align: center;
+}
+
+.toggle-link {
+  color: var(--auth-accent);
+  font-weight: 600;
+  cursor: pointer;
+  transition: text-decoration 0.2s;
+}
+
+.toggle-link:hover {
+  text-decoration: underline;
+}
+
+/* Role tab selector */
+.login-popup-role-selector {
+  display: flex;
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: var(--md-shape-corner-medium);
+  padding: 4px;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.role-tab {
+  flex: 1;
+  border: none;
+  background: none;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface-variant);
+  border-radius: calc(var(--md-shape-corner-medium) - 4px);
+  cursor: pointer;
+  transition: all 0.25s var(--md-transition-standard);
+}
+
+.role-tab.active {
+  background-color: var(--md-sys-color-surface);
+  color: var(--auth-accent);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.role-tab:hover:not(.active) {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: var(--md-sys-color-on-surface);
+}
