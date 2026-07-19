@@ -53,7 +53,7 @@ const Footer = () => {
             </li>
             <li className="contact-info-item">
               <span className="material-symbols-outlined contact-icon">mail</span>
-              <span>contactme@ujjawalgupta.in</span>
+              <span>contactme@ujjawalgupta.online</span>
             </li>
           </ul>
         </div>
