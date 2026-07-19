@@ -44,12 +44,16 @@ const Footer = () => {
           <h3>Get In Touch</h3>
           <ul>
             <li className="contact-info-item">
+              <span className="material-symbols-outlined contact-icon">location_on</span>
+              <span>House No. 390, Kurganja 1st, Powayan, Shahjahanpur, Uttar Pradesh, India</span>
+            </li>
+            <li className="contact-info-item">
               <span className="material-symbols-outlined contact-icon">call</span>
-              <span>+1-212-456-7890</span>
+              <span>+91 7007764009</span>
             </li>
             <li className="contact-info-item">
               <span className="material-symbols-outlined contact-icon">mail</span>
-              <span>support@tomato.com</span>
+              <span>contactme@ujjawalgupta.in</span>
             </li>
           </ul>
         </div>
