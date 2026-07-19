@@ -168,9 +168,9 @@ const LoginPopup = ({ showLogin, setShowLogin }) => {
     let script = document.getElementById(scriptId);
     
     const initGoogleSignIn = () => {
-      if (window.google) {
+      if (window.google && import.meta.env.VITE_GOOGLE_CLIENT_ID) {
         window.google.accounts.id.initialize({
-          client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID || "674236098793-83is78llkauo1n1misi72f29p4mt15fs.apps.googleusercontent.com",
+          client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
           callback: handleGoogleCredentialResponse
         });
 
