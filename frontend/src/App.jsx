@@ -1,9 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Route, Routes, useSearchParams, Navigate, useNavigate } from "react-router-dom";
+import { Route, Routes, useSearchParams, Navigate, useNavigate, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import Cart from "./pages/Cart/Cart";
 import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
+
+// Universal ScrollToTop helper for page navigation
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 import Footer from "./components/Footer/Footer";
 import LoginPopup from "./components/LoginPopup/LoginPopup";
 import Verify from "./pages/Verify/Verify";
@@ -277,6 +288,7 @@ const App = () => {
 
   return (
     <>
+      <ScrollToTop />
       {showLogin && <LoginPopup showLogin={showLogin} setShowLogin={setShowLogin} />}
       
       <Routes>

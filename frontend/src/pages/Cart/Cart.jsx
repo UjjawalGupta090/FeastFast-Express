@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./Cart.css";
 import { StoreContext } from "../../context/StoreContext";
 import { useNavigate } from "react-router-dom";
@@ -6,6 +6,10 @@ import { useNavigate } from "react-router-dom";
 const Cart = () => {
   const { cartItems, food_list, removeFromCart, getCartAmount, url, storeSettings, fulfillmentType, setFulfillmentType } = useContext(StoreContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const cartTotal = getCartAmount();
   const deliveryFee = (cartTotal > 0 && fulfillmentType === "delivery") ? 80 : 0;
