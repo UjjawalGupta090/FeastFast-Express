@@ -110,7 +110,7 @@ const updateStatus = async (req, res) => {
       updateObj.adminNote = adminNote;
     }
     await orderModel.findByIdAndUpdate(orderId, updateObj);
-    broadcastLiveUpdate("orderUpdated");
+    broadcastLiveUpdate("orderUpdated", { orderId, status, adminNote });
     res.json({ success: true, message: "Order Status Updated" });
   } catch (error) {
     console.error("Error in updateStatus:", error);

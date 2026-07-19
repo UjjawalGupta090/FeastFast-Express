@@ -16,10 +16,10 @@ export const subscribeLiveUpdates = (req, res) => {
   });
 };
 
-export const broadcastLiveUpdate = (type) => {
+export const broadcastLiveUpdate = (type, extraData = {}) => {
   sseClients.forEach((client) => {
     try {
-      client.write(`data: ${JSON.stringify({ type })}\n\n`);
+      client.write(`data: ${JSON.stringify({ type, ...extraData })}\n\n`);
     } catch (err) {
       console.error("Error sending SSE update:", err);
     }

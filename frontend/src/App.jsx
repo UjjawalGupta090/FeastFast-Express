@@ -20,6 +20,7 @@ import LoginPopup from "./components/LoginPopup/LoginPopup";
 import Verify from "./pages/Verify/Verify";
 import MyOrders from "./pages/MyOrders/MyOrders";
 import OrderSuccess from "./pages/OrderSuccess/OrderSuccess";
+import NotificationToast from "./components/NotificationToast/NotificationToast";
 
 // Admin components & styles
 import "./admin/admin.css";
@@ -289,6 +290,7 @@ const App = () => {
   return (
     <>
       <ScrollToTop />
+      <NotificationToast />
       {showLogin && <LoginPopup showLogin={showLogin} setShowLogin={setShowLogin} />}
       
       <Routes>
