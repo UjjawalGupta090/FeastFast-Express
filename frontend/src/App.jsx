@@ -8,6 +8,7 @@ import Footer from "./components/Footer/Footer";
 import LoginPopup from "./components/LoginPopup/LoginPopup";
 import Verify from "./pages/Verify/Verify";
 import MyOrders from "./pages/MyOrders/MyOrders";
+import OrderSuccess from "./pages/OrderSuccess/OrderSuccess";
 
 // Admin components & styles
 import "./admin/admin.css";
@@ -35,6 +36,7 @@ const CustomerLayout = ({ setShowLogin }) => {
           <Route path="/order" element={<PlaceOrder />} />
           <Route path="/verify" element={<Verify />} />
           <Route path="/myorders" element={<MyOrders />} />
+          <Route path="/ordersuccess" element={<OrderSuccess />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

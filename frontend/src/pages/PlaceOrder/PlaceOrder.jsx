@@ -259,7 +259,7 @@ const PlaceOrder = () => {
       });
       if (response.data.success) {
         setCartItems({});
-        navigate("/");
+        navigate("/ordersuccess", { state: { fulfillmentType } });
       } else {
         setErrorMessage(response.data.message || "Failed to process order checkout.");
       }
