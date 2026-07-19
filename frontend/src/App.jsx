@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Routes, useSearchParams, Navigate } from "react-router-dom";
+import { Route, Routes, useSearchParams, Navigate, useNavigate } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import Cart from "./pages/Cart/Cart";
@@ -140,7 +140,7 @@ const AdminLayout = () => {
   useEffect(() => {
     if (!token || role !== "admin") {
       const timer = setTimeout(() => {
-        window.location.href = (import.meta.env.VITE_FRONTEND_URL || "http://localhost:5173") + "/?openLogin=admin";
+        window.location.href = window.location.origin + "/?openLogin=admin";
       }, 1500);
       return () => clearTimeout(timer);
     }
@@ -152,7 +152,7 @@ const AdminLayout = () => {
     localStorage.removeItem("userName");
     setToken("");
     setRole("");
-    window.location.href = (import.meta.env.VITE_FRONTEND_URL || "http://localhost:5173") + "/";
+    window.location.href = window.location.origin + "/";
   };
 
   if (!token || role !== "admin") {
@@ -225,6 +225,7 @@ const AdminLayout = () => {
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
   const url = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000";
 
   useEffect(() => {
@@ -235,8 +236,7 @@ const App = () => {
 
       // Auto-redirect if already logged in as admin
       if (openLoginParam === "admin" && localToken && localRole === "admin") {
-        const name = localStorage.getItem("userName") || "Admin";
-        window.location.href = `/admin/dashboard?token=${localToken}&role=${localRole}&name=${encodeURIComponent(name)}`;
+        navigate("/admin/dashboard");
         return;
       }
 
